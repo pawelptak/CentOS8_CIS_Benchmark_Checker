@@ -16,3 +16,5 @@ CIS Policy Check Results
 1.1.9 Ensure nosuid option set on /var/tmp partition: Success
 1.1.10 Ensure noexec option set on /var/tmp partition: Success
 1.1.11 Ensure separate partition exists for /var/log: Failed
+
+Passed: 7/14 (50.0%)

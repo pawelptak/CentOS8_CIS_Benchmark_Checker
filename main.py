@@ -13,49 +13,51 @@ import s119
 import s11_10
 import s11_11
 
+
+sum=0
+passed=0
 file=open("report.txt","w+")
 file.writelines("CIS Policy Check Results\n\n")
 
 file.writelines("1.1.1 Disable unused filesystems \n\n")
 
-results=s1111.check()
-file.writelines(results[1]+"\n")
+def execute(script):
+    results=script.check()
+    file.writelines(results[1]+"\n")
+    if(results[0]=="1"):
+        return 1
+    else:
+        return 0
 
-results=s1112.check()
-file.writelines(results[1]+"\n")
 
-results=s1113.check()
-file.writelines(results[1]+"\n")
+passed+=execute(s1111)
+sum+=1
+passed+=execute(s1112)
+sum+=1
+passed+=execute(s1113)
+sum+=1
+passed+=execute(s1114)
+sum+=1
+passed+=execute(s112)
+sum+=1
+passed+=execute(s113)
+sum+=1
+passed+=execute(s114)
+sum+=1
+passed+=execute(s115)
+sum+=1
+passed+=execute(s116)
+sum+=1
+passed+=execute(s117)
+sum+=1
+passed+=execute(s118)
+sum+=1
+passed+=execute(s119)
+sum+=1
+passed+=execute(s11_10)
+sum+=1
+passed+=execute(s11_11)
+sum+=1
 
-results=s1114.check()
-file.writelines(results[1]+"\n")
+file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(float(passed/sum*100))+"%)")
 
-results=s112.check()
-file.writelines(results[1]+"\n")
-
-results=s113.check()
-file.writelines(results[1]+"\n")
-
-results=s114.check()
-file.writelines(results[1]+"\n")
-
-results=s115.check()
-file.writelines(results[1]+"\n")
-
-results=s116.check()
-file.writelines(results[1]+"\n")
-
-results=s117.check()
-file.writelines(results[1]+"\n")
-
-results=s118.check()
-file.writelines(results[1]+"\n")
-
-results=s119.check()
-file.writelines(results[1]+"\n")
-
-results=s11_10.check()
-file.writelines(results[1]+"\n")
-
-results=s11_11.check()
-file.writelines(results[1]+"\n")
