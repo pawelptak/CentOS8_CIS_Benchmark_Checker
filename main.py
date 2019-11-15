@@ -8,6 +8,10 @@ import s114
 import s115
 import s116
 import s117
+import s118
+import s119
+import s11_10
+import s11_11
 
 file=open("report.txt","w+")
 file.writelines("CIS Policy Check Results\n\n")
@@ -42,4 +46,16 @@ results=s116.check()
 file.writelines(results[1]+"\n")
 
 results=s117.check()
+file.writelines(results[1]+"\n")
+
+results=s118.check()
+file.writelines(results[1]+"\n")
+
+results=s119.check()
+file.writelines(results[1]+"\n")
+
+results=s11_10.check()
+file.writelines(results[1]+"\n")
+
+results=s11_11.check()
 file.writelines(results[1]+"\n")

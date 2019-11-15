@@ -12,3 +12,7 @@ CIS Policy Check Results
 1.1.5 Ensure noexec option set on /tmp partition: Success
 1.1.6 Ensure separate partition exists for /var: Failed
 1.1.7 Ensure separate partition exists for /var/tmp: Failed
+1.1.8 Ensure nodev option set on /var/tmp partition: Success
+1.1.9 Ensure nosuid option set on /var/tmp partition: Success
+1.1.10 Ensure noexec option set on /var/tmp partition: Success
+1.1.11 Ensure separate partition exists for /var/log: Failed
