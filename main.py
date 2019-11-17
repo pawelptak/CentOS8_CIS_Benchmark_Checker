@@ -107,6 +107,32 @@ passed+=execute(s1715)
 sum+=1
 passed+=execute(s1716)
 sum+=1
+passed+=execute(s1717)
+sum+=1
+
+file.writelines("\n1.8.1 Command Line Warning Banners\n")
+passed+=execute(s1814)
+sum+=1
+passed+=execute(s1815)
+sum+=1
+passed+=execute(s1816)
+sum+=1
+passed+=execute(s1_10)
+sum+=1
+passed+=execute(s1_11)
+sum+=1
+
+file.writelines("\n2.1 inetd Services\n")
+passed+=execute(s211)
+sum+=1
+
+file.writelines("\n2.2.1 Time Synchronization\n")
+passed+=execute(s2211)
+sum+=1
+passed+=execute(s2212)
+sum+=1
+
+
 
 file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(float(passed/sum*100))+"%)")
 
