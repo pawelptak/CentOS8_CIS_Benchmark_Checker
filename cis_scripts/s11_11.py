@@ -1,9 +1,13 @@
 import os
-import termcolor
+class colors:
+    SUCC = '\033[92m'
+    FAIL = '\033[91m'
+    NONE = '\033[0m'
+
 
 def check():
     results=[]
-    printed="1.1.11 Ensure separate partition exists for /var/log: "
+    printed="\t1.1.11 Ensure separate partition exists for /var/log: "
     print(printed,end='')
     one= False
     output = os.popen("mount | grep /var/log").read()
@@ -13,11 +17,11 @@ def check():
     if(one):
         printed+="Success"
         results.append("1")
-        print(termcolor.colored('Success', 'green'))
+        print(colors.SUCC+"Success"+colors.NONE)
     else:
         printed += "Failed"
         results.append("0")
-        print(termcolor.colored('Failed', 'red'))
+        print(colors.FAIL+"Failed"+colors.NONE)
     results.append(printed)
     return results
 

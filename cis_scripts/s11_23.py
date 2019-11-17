@@ -1,5 +1,4 @@
 import os
-
 class colors:
     SUCC = '\033[92m'
     FAIL = '\033[91m'
@@ -7,14 +6,14 @@ class colors:
 
 def check():
     results=[]
-    printed="\t1.1.1.1 Ensure mounting of cramfs filesystems is disabled: "
+    printed="\t1.1.23 Disable USB Storage: "
     print(printed,end='')
     one= False
-    output = os.popen("modprobe -n -v cramfs").read()
+    output = os.popen("modprobe -n -v usb-storage").read()
     if("install /bin/true" in output):
         one=True
     two=False
-    output=os.popen("lsmod | grep cramfs").read()
+    output=os.popen("lsmod | grep usb-storage").read()
     if(output==""):
         two=True
 
@@ -26,7 +25,7 @@ def check():
     else:
         printed += "Failed"
         results.append("0")
-        print(colors.FAIL+"Failed"+colors.NONE)
+        print(colors.SUCC+"Failed"+colors.NONE)
     results.append(printed)
     return results
 

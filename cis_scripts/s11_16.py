@@ -1,25 +1,20 @@
 import os
-
 class colors:
     SUCC = '\033[92m'
     FAIL = '\033[91m'
     NONE = '\033[0m'
 
+
 def check():
     results=[]
-    printed="\t1.1.1.1 Ensure mounting of cramfs filesystems is disabled: "
+    printed="\t1.1.16 Ensure nosuid option set on /dev/shm partition: "
     print(printed,end='')
     one= False
-    output = os.popen("modprobe -n -v cramfs").read()
-    if("install /bin/true" in output):
-        one=True
-    two=False
-    output=os.popen("lsmod | grep cramfs").read()
+    output = os.popen("mount | grep -E '\s/dev/shm\s' | grep -v nosuid").read()
     if(output==""):
-        two=True
+        one=True
 
-    result = one and two
-    if(result):
+    if(one):
         printed+="Success"
         results.append("1")
         print(colors.SUCC+"Success"+colors.NONE)

@@ -1,25 +1,20 @@
 import os
-
 class colors:
     SUCC = '\033[92m'
     FAIL = '\033[91m'
     NONE = '\033[0m'
 
+
 def check():
     results=[]
-    printed="\t1.1.1.1 Ensure mounting of cramfs filesystems is disabled: "
+    printed="\t1.1.13 Ensure separate partition exists for /home: "
     print(printed,end='')
     one= False
-    output = os.popen("modprobe -n -v cramfs").read()
-    if("install /bin/true" in output):
+    output = os.popen("mount | grep /home").read()
+    if("/dev/xvdf1 on /home type xfs (rw,nodev,relatime,data=ordered)" in output):
         one=True
-    two=False
-    output=os.popen("lsmod | grep cramfs").read()
-    if(output==""):
-        two=True
 
-    result = one and two
-    if(result):
+    if(one):
         printed+="Success"
         results.append("1")
         print(colors.SUCC+"Success"+colors.NONE)

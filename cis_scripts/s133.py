@@ -7,14 +7,17 @@ class colors:
 
 def check():
     results=[]
-    printed="\t1.1.6 Ensure separate partition exists for /var: "
+    printed="\t1.3.3 Ensure sudo log file exists: "
     print(printed,end='')
     one= False
-    output = os.popen("mount | grep -E '\s/var\s'").read()
-    if("/dev/xvdg1 on /var type xfs (rw,relatime,data=ordered)" in output):
+    output = os.popen("grep -Ei '^\s*Defaults\s+([^#]+,\s*)?logfile=' /etc/sudoers").read()
+    if("Defaults logfile=""/var/log/sudo.log""" in output):
         one=True
-
-    if(one):
+    two=False
+    output=os.popen("grep -Ei '^\s*Defaults\s+([^#]+,\s*)?logfile=' /etc/sudoers.d/*").read()
+    if ("Defaults logfile=""/var/log/sudo.log""" in output):
+        two = True
+    if(one or two):
         printed+="Success"
         results.append("1")
         print(colors.SUCC+"Success"+colors.NONE)

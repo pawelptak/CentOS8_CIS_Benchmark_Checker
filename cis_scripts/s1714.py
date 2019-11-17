@@ -1,25 +1,24 @@
 import os
-
 class colors:
     SUCC = '\033[92m'
     FAIL = '\033[91m'
     NONE = '\033[0m'
 
+
 def check():
     results=[]
-    printed="\t1.1.1.1 Ensure mounting of cramfs filesystems is disabled: "
+    printed="\t1.7.1.4 Ensure the SELinux state is enforcing: "
     print(printed,end='')
     one= False
-    output = os.popen("modprobe -n -v cramfs").read()
-    if("install /bin/true" in output):
+    searched=r"'^\s*SELINUX=enforcing'"
+    output = os.popen('grep -E '+searched+' /etc/selinux/config').read()
+    if("SELINUX=enforcing" in output):
         one=True
     two=False
-    output=os.popen("lsmod | grep cramfs").read()
-    if(output==""):
-        two=True
-
-    result = one and two
-    if(result):
+    output = os.popen('sestatus').read()
+    if ("Current mode:                   enforcing" in output and "Mode from config file:          enforcing" in output):
+        two = True
+    if(one and two):
         printed+="Success"
         results.append("1")
         print(colors.SUCC+"Success"+colors.NONE)

@@ -1,9 +1,13 @@
 import os
-import termcolor
+class colors:
+    SUCC = '\033[92m'
+    FAIL = '\033[91m'
+    NONE = '\033[0m'
+
 
 def check():
     results=[]
-    printed="1.1.1.3 Ensure mounting of squashfs filesystems is disabled: "
+    printed="\t1.1.1.3 Ensure mounting of squashfs filesystems is disabled: "
     print(printed,end='')
     one= False
     output = os.popen("modprobe -n -v squashfs").read()
@@ -18,11 +22,11 @@ def check():
     if(result):
         printed+="Success"
         results.append("1")
-        print(termcolor.colored('Success', 'green'))
+        print(colors.SUCC+"Success"+colors.NONE)
     else:
         printed += "Failed"
         results.append("0")
-        print(termcolor.colored('Failed', 'red'))
+        print(colors.FAIL+"Failed"+colors.NONE)
     results.append(printed)
     return results
 

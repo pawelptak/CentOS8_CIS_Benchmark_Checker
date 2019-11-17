@@ -1,9 +1,13 @@
 import os
-import termcolor
+class colors:
+    SUCC = '\033[92m'
+    FAIL = '\033[91m'
+    NONE = '\033[0m'
+
 
 def check():
     results=[]
-    printed="1.1.2 Ensure /tmp is configured: "
+    printed="\t1.1.2 Ensure /tmp is configured: "
     print(printed,end='')
     one= False
     output = os.popen("mount | grep -E '\s/tmp\s'").read()
@@ -18,11 +22,11 @@ def check():
     if(result):
         printed+="Success"
         results.append("1")
-        print(termcolor.colored('Success', 'green'))
+        print(colors.SUCC+"Success"+colors.NONE)
     else:
         printed += "Failed"
         results.append("0")
-        print(termcolor.colored('Failed', 'red'))
+        print(colors.FAIL+"Failed"+colors.NONE)
     results.append(printed)
     return results
 
