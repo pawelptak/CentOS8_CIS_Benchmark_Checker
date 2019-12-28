@@ -1,2 +1,2 @@
 # CentOS8_CIS_Benchmark_Checker
-Skrypt wykonywac bedac zalogowanym na koncie roota.
+Skrypt wykonywac bedac zalogowanym na koncie roota. (sudo -s)
