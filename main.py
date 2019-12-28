@@ -135,6 +135,30 @@ sum+=1
 file.writelines("\n3.1 Network Parameters (Host Only)\n")
 passed+=execute(s311)
 sum+=1
+passed+=execute(s312)
+sum+=1
+
+file.writelines("\n3.2 Network Parameters (Host and Router)\n")
+passed+=execute(s321)
+sum+=1
+passed+=execute(s322)
+sum+=1
+passed+=execute(s323)
+sum+=1
+passed+=execute(s324)
+sum+=1
+passed+=execute(s325)
+sum+=1
+passed+=execute(s326)
+sum+=1
+passed+=execute(s327)
+sum+=1
+passed+=execute(s329)
+sum+=1
+
+file.writelines("\n3.4.4 Configure iptables\n")
+passed+=execute(s34411)
+sum+=1
 
 file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(round(float(passed/sum*100),2))+"%)")
 
