@@ -132,7 +132,9 @@ sum+=1
 passed+=execute(s2212)
 sum+=1
 
+file.writelines("\n3.1 Network Parameters (Host Only)\n")
+passed+=execute(s311)
+sum+=1
 
-
-file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(float(passed/sum*100))+"%)")
+file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(round(float(passed/sum*100),2))+"%)")
 
