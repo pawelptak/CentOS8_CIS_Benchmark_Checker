@@ -159,6 +159,10 @@ sum+=1
 file.writelines("\n3.4.4 Configure iptables\n")
 passed+=execute(s34411)
 sum+=1
+passed+=execute(s34412)
+sum+=1
+passed+=execute(s34414)
+sum+=1
 
 file.writelines("\nPassed: "+str(passed)+"/"+str(sum)+" ("+str(round(float(passed/sum*100),2))+"%)")
 

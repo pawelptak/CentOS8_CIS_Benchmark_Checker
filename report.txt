@@ -83,6 +83,8 @@ CIS Policy Check Results
 	3.2.9 Ensure IPv6 router advertisements are not accepted: Success
 
 3.4.4 Configure iptables
-	3.4.4.1.1 Ensure default deny firewall policy: Success
+	3.4.4.1.1 Ensure default deny firewall policy: Failed
+	3.4.4.1.2 Ensure loopback traffic is configured: Success
+	3.4.4.1.4 Ensure firewall rules exist for all open ports: Success
 
-Passed: 30/59 (50.85%)
+Passed: 31/61 (50.82%)
