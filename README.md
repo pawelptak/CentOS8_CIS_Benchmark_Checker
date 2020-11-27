@@ -1,5 +1,6 @@
 # CentOS8_CIS_Benchmark_Checker
 Run scripts as root `(sudo -s)`.
+
 Run program from the main.py file (`python main.py` or `python3 main.py`).
 
 ![running](https://user-images.githubusercontent.com/52631916/72626408-f6406580-394a-11ea-92e0-8ef7b74c32a0.PNG)
