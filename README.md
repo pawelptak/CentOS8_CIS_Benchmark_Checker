@@ -1,5 +1,5 @@
 # CentOS8_CIS_Benchmark_Checker
-Run scripts as root `(sudo -s)`.
+Root privileges required `(sudo -s)`.
 
 Run program from the main.py file (`python main.py` or `python3 main.py`).
 
